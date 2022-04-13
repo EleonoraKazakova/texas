@@ -1,0 +1,24 @@
+@import "./base/swatches.css";
+@import "./base/variables.css";
+
+.app-grid {
+  display: grid;
+  grid-template-rows: auto 60px;
+  min-height: 100vh;
+}
+
+.app-content {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  /*display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding-top: 50px;*/
+}
+
+.app-footer {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: #220202;
+}
