@@ -1,12 +1,17 @@
-import { getCollection } from "./scripts/fireStore";
 import "./styles/app.css";
 import HomePage from "./components/HomePage";
+import Menu from "./components/Menu";
+import Categories from "./components/Categories";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  getCollection("menu");
   return (
     <div>
-      <HomePage />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/menu/:categories" element={<Categories />} />
+      </Routes>
     </div>
   );
 }
