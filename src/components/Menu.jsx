@@ -5,7 +5,7 @@ import "../styles/menu.css";
 
 export default function Menu() {
   const params = useParams();
-
+  const [categories, setCategories] = useState([]);
   const [menu, setMenu] = useState([]);
   const [status, setStatus] = useState(0);
 
@@ -19,6 +19,23 @@ export default function Menu() {
     loadData("menu");
   }, []);
 
+  useEffect(() => {
+    async function loadData(path) {
+      const data = await getCollection(path);
+      setCategories(data);
+      setStatus(1);
+    }
+    loadData("categoriesTexas");
+  }, []);
+
+  const LinkCategory = categories.map((item) =>
+    item.subCategories.map((subCategory) => (
+      <div>
+        <Link to={`/menu/${subCategory.type}`}>{subCategory.title}</Link>
+      </div>
+    ))
+  );
+
   if (status === 0) return <p>Loading...</p>;
   if (status === 2) return <p>Error...</p>;
 
@@ -30,6 +47,11 @@ export default function Menu() {
     </div>
   ));
 
-  console.log("menu:", menu);
-  return <div>{menuCards}</div>;
+  console.log("LinkCategory:", LinkCategory);
+  return (
+    <div>
+      <div>{menuCards} </div>
+      <div>{LinkCategory}</div>
+    </div>
+  );
 }
