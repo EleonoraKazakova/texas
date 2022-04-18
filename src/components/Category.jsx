@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
-import { getDocument, getCollection } from "../scripts/fireStore";
+import { getCollection } from "../scripts/fireStore";
 import { useEffect, useState } from "react";
+import "../styles/category.sass";
 
 export default function Category() {
   const params = useParams();
@@ -16,18 +17,23 @@ export default function Category() {
     loadData(path);
   }, []);
 
+  const dishCard = document.map((doc) => (
+    <button key={doc.title} className="category-card">
+      <img src={doc.imgURL} className="category-img-dish" />
+      {doc.title}
+
+      <Link to={`/menu/${params.category}/${doc.id}`}>See more</Link>
+    </button>
+  ));
+
   console.log("document:", document);
 
   return (
     <div>
-      {document.map((doc) => (
-        <div key={doc.title}>
-          {doc.title}
-          <button>
-            <Link to={`/menu/${params.category}/${doc.type}`}>See more</Link>
-          </button>
-        </div>
-      ))}
+      <header className={`category-${params.category} category-img`}></header>
+      <div className="category-block">
+        <div className="category-dishes-block">{dishCard}</div>
+      </div>
     </div>
   );
 }

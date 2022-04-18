@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { getDocument } from "../scripts/fireStore";
 import { useEffect, useState } from "react";
+import "../styles/dish.sass";
 
 export default function Dish() {
   const params = useParams();
@@ -22,5 +23,10 @@ export default function Dish() {
   }, []);
 
   console.log("dish:", dish);
-  return <div>{dish.title}</div>;
+  return (
+    <div>
+      <img src={dish.imgURL} className="dish-img" />
+      {dish.title}
+    </div>
+  );
 }
