@@ -17,8 +17,9 @@ export default function Menu() {
     loadData("categoriesTexas");
   }, []);
 
+  console.log("categories:", categories);
   const categoryCard = categories.map((item) =>
-    item.subCategories.map((subCategory) => (
+    item.subCategory.map((subCategory) => (
       <button className="menu-card">
         <img src={subCategory.imgURL} className="menu-img" />
         <Link to={`/menu/${subCategory.type}`}>{subCategory.title}</Link>
