@@ -11,27 +11,16 @@ import {
 
 export async function updateDocument(path, data) {
   const documentPath = doc(fireStore, path);
-
   await updateDoc(documentPath, data);
 }
 
 export async function addDocument(path, data) {
   const documentPath = doc(fireStore, path);
-  const document = await addDoc(documentPath, data);
-
-  return document;
-}
-
-export async function createDocument(path, data) {
-  const documentPath = collection(fireStore, path);
-  const document = await addDoc(documentPath, data);
-
-  return document.id;
+  await setDoc(documentPath, data);
 }
 
 export async function getDocument(path) {
-  //id
-  const documentPath = doc(fireStore, path); //id
+  const documentPath = doc(fireStore, path);
   const document = await getDoc(documentPath);
 
   console.log("document data:", document.data());

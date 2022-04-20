@@ -6,7 +6,7 @@ import {
   getDocument,
 } from "../scripts/fireStore";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/admin.sass";
 
 export default function Admin() {
@@ -17,7 +17,7 @@ export default function Admin() {
 
   const path = `categoriesTexas/allDishes`;
 
-  console.log("categories:", categories);
+  console.log("title:", title);
 
   async function onUpdate(event) {
     event.preventDefault();
@@ -43,7 +43,7 @@ export default function Admin() {
   const categoryCard = categories.map((item) => (
     <button className="admin-content">
       {/* <img src={subCategory.imgURL} className="menu-img" />*/}
-      {item.title}
+      <Link to={`/admin/${item.title}`}> {item.title} </Link>
     </button>
   ));
 
