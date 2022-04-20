@@ -7,6 +7,7 @@ import {
   addDoc,
   updateDoc,
   setDoc,
+  deleteDoc,
 } from "firebase/firestore";
 
 export async function updateDocument(path, data) {
@@ -22,8 +23,6 @@ export async function addDocument(path, data) {
 export async function getDocument(path) {
   const documentPath = doc(fireStore, path);
   const document = await getDoc(documentPath);
-
-  console.log("document data:", document.data());
   return document.data();
 }
 
@@ -36,4 +35,9 @@ export async function getCollection(path) {
   });
 
   return documents;
+}
+
+export async function deleteDocument(path) {
+  const documentPath = doc(fireStore, path);
+  await deleteDoc(documentPath);
 }
