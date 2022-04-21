@@ -13,6 +13,7 @@ export default function AdminCategory() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [dishes, setDishes] = useState([]);
   const [file, setFile] = useState(null);
 
@@ -39,6 +40,7 @@ export default function AdminCategory() {
       type: newType,
       ingredients: ingredients,
       imgURL: "",
+      price: price,
     };
 
     const fileName = `category-${title}.jpg`;
@@ -61,11 +63,15 @@ export default function AdminCategory() {
   }
 
   const dishCard = dishes.map((doc) => (
-    <div key={doc.title}>
+    <div key={doc.title} className="admin-block">
       <img src={doc.imgURL} />
-      <Link to={`/admin/${params.adminCategory}/${doc.title}`}>
-        {doc.title}
-      </Link>
+      {doc.title}
+      {doc.description}
+      {doc.ingredients}
+      {doc.price}
+      <button className="admin-button">
+        <Link to={`/admin/${params.adminCategory}/${doc.type}`}>Edit dish</Link>
+      </button>
       <button className="admin-button" onClick={() => onDelete(doc.type)}>
         Delete dish
       </button>
@@ -74,7 +80,7 @@ export default function AdminCategory() {
 
   return (
     <div className="admin-content">
-      {dishCard}
+      <button className="admin-button">Edit category</button>
       <form onSubmit={onCreate}>
         <input
           placeholder="title"
@@ -92,6 +98,11 @@ export default function AdminCategory() {
           onChange={(event) => setIngredients(event.target.value)}
         />
         <input
+          placeholder="price"
+          value={price}
+          onChange={(event) => setPrice(event.target.value)}
+        />
+        <input
           type="file"
           accept="image/png, image/jpeg"
           onChange={(event) => setFile(event.target.files[0])}
@@ -99,6 +110,7 @@ export default function AdminCategory() {
 
         <button className="admin-button">Submit</button>
       </form>
+      {dishCard}
     </div>
   );
 }

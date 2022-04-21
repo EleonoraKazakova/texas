@@ -26,6 +26,12 @@ export async function getDocument(path) {
   return document.data();
 }
 
+/*export async function editDocument(path, data) {
+  const documentPath = doc(fireStore, path);
+  const document = await getDoc(documentPath);
+  return document.data();
+}*/
+
 export async function getCollection(path) {
   const collectionPath = collection(fireStore, path);
   const snapshot = await getDocs(collectionPath);

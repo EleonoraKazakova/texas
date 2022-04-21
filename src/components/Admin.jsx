@@ -67,7 +67,6 @@ export default function Admin() {
 
   return (
     <div>
-      {categoryCard}
       <form onSubmit={onUpdate}>
         <input
           placeholder="Title"
@@ -88,6 +87,7 @@ export default function Admin() {
         />
         <button className="admin-button">Submit</button>
       </form>
+      {categoryCard}
     </div>
   );
 }

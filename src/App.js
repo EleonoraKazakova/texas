@@ -8,6 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 import Admin from "./components/Admin";
 import AdminCategory from "./components/AdminCategory";
 import AdminDish from "./components/AdminDish";
+import AdminEdit from "./components/AdminEdit";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
         <Route
           path="/admin/:adminCategory/:adminDish"
           element={<AdminDish />}
+        />
+        <Route
+          path="/admin/:adminCategory/:adminDish/:adminEdit"
+          element={<AdminEdit />}
         />
       </Routes>
     </div>
