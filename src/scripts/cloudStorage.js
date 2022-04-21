@@ -8,3 +8,9 @@ export async function createFile(filePath, file) {
 
   return await getDownloadURL(fileReference);
 }
+
+export async function deleteFile(filePath) {
+  const fileReference = ref(cloudStorage, filePath);
+
+  await deleteObject(fileReference);
+}

@@ -6,6 +6,7 @@ import {
   deleteDocument,
 } from "../scripts/fireStore";
 import { useParams, Link } from "react-router-dom";
+import { createFile } from "../scripts/cloudStorage";
 
 export default function AdminCategory() {
   const params = useParams();
@@ -13,8 +14,7 @@ export default function AdminCategory() {
   const [ingredients, setIngredients] = useState("");
   const [description, setDescription] = useState("");
   const [dishes, setDishes] = useState([]);
-
-  console.log("params:", params);
+  const [file, setFile] = useState(null);
 
   useEffect(() => {
     const path = `categoriesTexas/allDishes/${params.adminCategory}`;
@@ -29,15 +29,23 @@ export default function AdminCategory() {
     setTitle("");
     setIngredients("");
   }
-  const path = `categoriesTexas/allDishes/${params.adminCategory}/${title}`;
 
   async function onCreate(event) {
     event.preventDefault();
-
+    const newType = title.toLowerCase();
+    const path = `categoriesTexas/allDishes/${params.adminCategory}/${newType}`;
     const newDish = {
       title: title,
+      type: newType,
       ingredients: ingredients,
+      imgURL: "",
     };
+
+    const fileName = `category-${title}.jpg`;
+    const filePath = path + fileName;
+    const imgURL = await createFile(filePath, file);
+
+    newDish.imgURL = imgURL;
 
     await addDocument(path, newDish);
     clearForm();
@@ -48,18 +56,17 @@ export default function AdminCategory() {
     await deleteDocument(
       `categoriesTexas/allDishes/${params.adminCategory}/${dish}`
     );
-    const newDishes = dishes.filter(
-      (currentDish) => currentDish.title !== dish
-    );
+    const newDishes = dishes.filter((currentDish) => currentDish.type !== dish);
     setDishes(newDishes);
   }
 
   const dishCard = dishes.map((doc) => (
     <div key={doc.title}>
+      <img src={doc.imgURL} />
       <Link to={`/admin/${params.adminCategory}/${doc.title}`}>
         {doc.title}
       </Link>
-      <button className="admin-button" onClick={() => onDelete(doc.title)}>
+      <button className="admin-button" onClick={() => onDelete(doc.type)}>
         Delete dish
       </button>
     </div>
@@ -83,6 +90,11 @@ export default function AdminCategory() {
           placeholder="ingredients"
           value={ingredients}
           onChange={(event) => setIngredients(event.target.value)}
+        />
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          onChange={(event) => setFile(event.target.files[0])}
         />
 
         <button className="admin-button">Submit</button>

@@ -1,10 +1,4 @@
-import {
-  getCollection,
-  createDocument,
-  addDocument,
-  updateDocument,
-  getDocument,
-} from "../scripts/fireStore";
+import { updateDocument, getDocument } from "../scripts/fireStore";
 import { createFile } from "../scripts/cloudStorage";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -13,6 +7,7 @@ import "../styles/admin.sass";
 export default function Admin() {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
+  const [description, setDescription] = useState("");
   const [categories, setCategories] = useState([]);
 
   const path = `categoriesTexas/allDishes`;
@@ -25,7 +20,7 @@ export default function Admin() {
     loadData("categoriesTexas/allDishes");
   }, []);
 
-  console.log("title:", title);
+  console.log("categories:", categories);
 
   async function onUpdate(event) {
     event.preventDefault();
@@ -33,6 +28,7 @@ export default function Admin() {
       title: title,
       type: title.toLowerCase(),
       imgURL: "",
+      description: description,
     };
 
     const fileName = `category-${title}.jpg`;
@@ -41,23 +37,32 @@ export default function Admin() {
 
     newCategory.imgURL = imgURL;
 
-    console.log("newCategory.imgURL:", newCategory.imgURL);
     await updateDocument(path, {
       subCategory: [...categories, newCategory],
     });
     setCategories([...categories, newCategory]);
   }
 
-  /*async function onImageChoose(event) {
-    const file = event.target.files[0];
-    setFile(file);
-  }*/
+  async function onDelete(event, title) {
+    event.preventDefault();
+
+    const newCategories = categories.filter(
+      (category) => category.title !== title
+    );
+    await updateDocument(path, {
+      subCategory: newCategories,
+    });
+    setCategories(newCategories);
+  }
 
   const categoryCard = categories.map((item) => (
-    <button className="admin-content">
-      <img src={item.imgURL} />
-      <Link to={`/admin/${item.title}`}> {item.title} </Link>
-    </button>
+    <div>
+      <button className="admin-content">
+        <img src={item.imgURL} />
+        <Link to={`/admin/${item.type}`}> {item.title} </Link>
+      </button>
+      <button onClick={(event) => onDelete(event, item.title)}>Delete</button>
+    </div>
   ));
 
   return (
@@ -69,6 +74,13 @@ export default function Admin() {
           value={title}
           onChange={(event) => setTitle(event.target.value)}
         />
+
+        <input
+          placeholder="description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
+        />
+
         <input
           type="file"
           accept="image/png, image/jpeg"
