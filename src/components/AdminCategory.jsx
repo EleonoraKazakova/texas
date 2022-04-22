@@ -7,6 +7,7 @@ import {
 } from "../scripts/fireStore";
 import { useParams, Link } from "react-router-dom";
 import { createFile } from "../scripts/cloudStorage";
+import AdminFormDish from "./Admin-form-dish";
 
 export default function AdminCategory() {
   const params = useParams();
@@ -17,6 +18,7 @@ export default function AdminCategory() {
   const [dishes, setDishes] = useState([]);
   const [file, setFile] = useState(null);
 
+  console.log("params:", params);
   useEffect(() => {
     const path = `categoriesTexas/allDishes/${params.adminCategory}`;
     async function loadData(path) {
@@ -63,7 +65,7 @@ export default function AdminCategory() {
   }
 
   const dishCard = dishes.map((doc) => (
-    <div key={doc.title} className="admin-block">
+    <div key={doc.title} className="admin-category">
       <img src={doc.imgURL} />
       {doc.title}
       {doc.description}
@@ -79,38 +81,31 @@ export default function AdminCategory() {
   ));
 
   return (
-    <div className="admin-content">
-      <button className="admin-button">Edit category</button>
-      <form onSubmit={onCreate}>
-        <input
-          placeholder="title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
-        <input
-          placeholder="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
-        <input
-          placeholder="ingredients"
-          value={ingredients}
-          onChange={(event) => setIngredients(event.target.value)}
-        />
-        <input
-          placeholder="price"
-          value={price}
-          onChange={(event) => setPrice(event.target.value)}
-        />
-        <input
-          type="file"
-          accept="image/png, image/jpeg"
-          onChange={(event) => setFile(event.target.files[0])}
+    <div className="admin-grid">
+      <div className="admin-header">
+        <h1>Admin page of dishes</h1>
+      </div>
+      <div className="admin-content-block">
+        <button className="admin-button">
+          <Link to={`/admin/${params.adminCategory}/edit`}>Edit category</Link>
+        </button>
+        <AdminFormDish
+          formProps={[
+            title,
+            setTitle,
+            description,
+            setDescription,
+            setFile,
+            onCreate,
+            ingredients,
+            setIngredients,
+            price,
+            setPrice,
+          ]}
         />
 
-        <button className="admin-button">Submit</button>
-      </form>
-      {dishCard}
+        <div className="admin-category-block"> {dishCard} </div>
+      </div>
     </div>
   );
 }

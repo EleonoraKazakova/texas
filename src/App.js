@@ -8,7 +8,7 @@ import NavigationBar from "./components/NavigationBar";
 import Admin from "./components/Admin";
 import AdminCategory from "./components/AdminCategory";
 import AdminDish from "./components/AdminDish";
-import AdminEdit from "./components/AdminEdit";
+import AdminCategoryEdit from "./components/AdminCategoryEdit";
 
 function App() {
   return (
@@ -22,12 +22,12 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/:adminCategory" element={<AdminCategory />} />
         <Route
-          path="/admin/:adminCategory/:adminDish"
-          element={<AdminDish />}
+          path="/admin/:adminCategory/edit"
+          element={<AdminCategoryEdit />}
         />
         <Route
-          path="/admin/:adminCategory/:adminDish/:adminEdit"
-          element={<AdminEdit />}
+          path="/admin/:adminCategory/:adminDish"
+          element={<AdminDish />}
         />
       </Routes>
     </div>

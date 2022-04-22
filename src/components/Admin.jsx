@@ -3,6 +3,7 @@ import { createFile } from "../scripts/cloudStorage";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/admin.sass";
+import AdminFormCategory from "./Admin-form-category";
 
 export default function Admin() {
   const [title, setTitle] = useState("");
@@ -19,8 +20,6 @@ export default function Admin() {
     }
     loadData("categoriesTexas/allDishes");
   }, []);
-
-  console.log("categories:", categories);
 
   async function onUpdate(event) {
     event.preventDefault();
@@ -56,38 +55,51 @@ export default function Admin() {
   }
 
   const categoryCard = categories.map((item) => (
-    <div>
-      <button className="admin-content">
-        <img src={item.imgURL} />
+    <tr className="admin-category">
+      <td className="admin-td-img">
+        <img src={item.imgURL} className="admin-foto" />
+      </td>
+      <td className="admin-td-title">
         <Link to={`/admin/${item.type}`}> {item.title} </Link>
-      </button>
-      <button onClick={(event) => onDelete(event, item.title)}>Delete</button>
-    </div>
+      </td>
+      <td className="admin-td-description"> {item.description}</td>
+      <td className="admin-td-delete">
+        <button onClick={(event) => onDelete(event, item.title)}>Delete</button>
+      </td>
+    </tr>
   ));
 
   return (
-    <div>
-      <form onSubmit={onUpdate}>
-        <input
-          placeholder="Title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-        />
+    <div className="admin-grid">
+      <div className="admin-header">
+        <h1>Admin page</h1>
+      </div>
 
-        <input
-          placeholder="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-        />
+      <div className="admin-form-background"></div>
 
-        <input
-          type="file"
-          accept="image/png, image/jpeg"
-          onChange={(event) => setFile(event.target.files[0])}
+      <div className="admin-form">
+        <AdminFormCategory
+          formProps={[
+            title,
+            setTitle,
+            description,
+            setDescription,
+            setFile,
+            onUpdate,
+          ]}
         />
-        <button className="admin-button">Submit</button>
-      </form>
-      {categoryCard}
+      </div>
+      <div className="admin-content-block">
+        <table className="admin-category-block">
+          <thead className="admin-category-thead">
+            <td className="admin-td-img">Picture</td>
+            <td className="admin-td-title">Title</td>
+            <td className="admin-td-description"> Description</td>
+            <td className="admin-td-delete">Delete</td>
+          </thead>
+          <tbody>{categoryCard}</tbody>
+        </table>
+      </div>
     </div>
   );
 }
