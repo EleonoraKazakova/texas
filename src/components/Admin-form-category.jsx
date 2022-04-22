@@ -26,7 +26,7 @@ export default function AdminFormCategory({ formProps }) {
             onChange={(event) => setDescription(event.target.value)}
           />
         </div>
-        <div>
+        <div className="admin-label">
           <label>Choose picture</label>
           <input
             type="file"

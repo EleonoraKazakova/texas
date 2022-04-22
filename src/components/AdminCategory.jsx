@@ -65,30 +65,41 @@ export default function AdminCategory() {
   }
 
   const dishCard = dishes.map((doc) => (
-    <div key={doc.title} className="admin-category">
-      <img src={doc.imgURL} />
-      {doc.title}
-      {doc.description}
-      {doc.ingredients}
-      {doc.price}
-      <button className="admin-button">
-        <Link to={`/admin/${params.adminCategory}/${doc.type}`}>Edit dish</Link>
-      </button>
-      <button className="admin-button" onClick={() => onDelete(doc.type)}>
-        Delete dish
-      </button>
-    </div>
+    <tr key={doc.title} className="admin-category">
+      <td className="admin-td-img">
+        <img src={doc.imgURL} className="admin-foto" />
+      </td>
+      <td className="admin-td-title">{doc.title}</td>
+      <td className="admin-td-description">{doc.description}</td>
+      <td className="admin-td-description">{doc.ingredients}</td>
+      <td className="admin-td-title">{doc.price}</td>
+      <td className="admin-td-delete">
+        <button className="admin-button">
+          <Link to={`/admin/${params.adminCategory}/${doc.type}`}>
+            Edit dish
+          </Link>
+        </button>
+      </td>
+      <td className="admin-td-delete">
+        <button className="admin-button" onClick={() => onDelete(doc.type)}>
+          Delete dish
+        </button>
+      </td>
+    </tr>
   ));
 
   return (
     <div className="admin-grid">
       <div className="admin-header">
         <h1>Admin page of dishes</h1>
-      </div>
-      <div className="admin-content-block">
         <button className="admin-button">
           <Link to={`/admin/${params.adminCategory}/edit`}>Edit category</Link>
         </button>
+      </div>
+
+      <div className="admin-form-background"></div>
+
+      <div className="admin-form">
         <AdminFormDish
           formProps={[
             title,
@@ -103,8 +114,21 @@ export default function AdminCategory() {
             setPrice,
           ]}
         />
+      </div>
 
-        <div className="admin-category-block"> {dishCard} </div>
+      <div className="admin-content-block">
+        <table className="admin-category-block">
+          <thead className="admin-category-thead">
+            <td className="admin-td-img">Picture</td>
+            <td className="admin-td-title">Title</td>
+            <td className="admin-td-description"> Description</td>
+            <td className="admin-td-description"> Ingredients</td>
+            <td className="admin-td-title">Price</td>
+            <td className="admin-td-delete">Edit</td>
+            <td className="admin-td-delete">Delete</td>
+          </thead>
+          <tbody>{dishCard}</tbody>
+        </table>
       </div>
     </div>
   );
