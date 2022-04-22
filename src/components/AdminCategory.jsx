@@ -18,7 +18,7 @@ export default function AdminCategory() {
   const [dishes, setDishes] = useState([]);
   const [file, setFile] = useState(null);
 
-  console.log("params:", params);
+  console.log("ingredients:", ingredients);
   useEffect(() => {
     const path = `categoriesTexas/allDishes/${params.adminCategory}`;
     async function loadData(path) {
@@ -31,6 +31,8 @@ export default function AdminCategory() {
   function clearForm() {
     setTitle("");
     setIngredients("");
+    setDescription("");
+    setPrice("");
   }
 
   async function onCreate(event) {
@@ -40,6 +42,7 @@ export default function AdminCategory() {
     const newDish = {
       title: title,
       type: newType,
+      description: description,
       ingredients: ingredients,
       imgURL: "",
       price: price,
@@ -52,8 +55,8 @@ export default function AdminCategory() {
     newDish.imgURL = imgURL;
 
     await addDocument(path, newDish);
-    clearForm();
     setDishes([...dishes, newDish]);
+    clearForm();
   }
 
   async function onDelete(dish) {
@@ -75,14 +78,12 @@ export default function AdminCategory() {
       <td className="admin-td-title">{doc.price}</td>
       <td className="admin-td-delete">
         <button className="admin-button">
-          <Link to={`/admin/${params.adminCategory}/${doc.type}`}>
-            Edit dish
-          </Link>
+          <Link to={`/admin/${params.adminCategory}/${doc.type}`}>Edit</Link>
         </button>
       </td>
       <td className="admin-td-delete">
         <button className="admin-button" onClick={() => onDelete(doc.type)}>
-          Delete dish
+          Delete
         </button>
       </td>
     </tr>
@@ -104,12 +105,12 @@ export default function AdminCategory() {
           formProps={[
             title,
             setTitle,
+            ingredients,
+            setIngredients,
             description,
             setDescription,
             setFile,
             onCreate,
-            ingredients,
-            setIngredients,
             price,
             setPrice,
           ]}

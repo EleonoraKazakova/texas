@@ -5,13 +5,18 @@ import {
   deleteDocument,
   updateDocument,
 } from "../scripts/fireStore";
+import { createFile } from "../scripts/cloudStorage";
 import "../styles/admin.sass";
 
 export default function AdminDish() {
   const params = useParams();
   const navigate = useNavigate();
   const [dish, setDish] = useState([]);
+  const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [file, setFile] = useState(null);
 
   const path = `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDish}`;
 
@@ -23,15 +28,27 @@ export default function AdminDish() {
       console.log("data:", data);
       setDish(data);
       setIngredients(data.ingredients);
+      setPrice(data.price);
+      setDescription(data.description);
+      setFile(data.imgURL);
+      setTitle(data.title);
     }
     loadData();
   }, []);
 
   async function onUpdate(event) {
     event.preventDefault();
+    const fileName = `category-${title}.jpg`;
+    const filePath = path + fileName;
+    const newImgURL = await createFile(filePath, file);
+    console.log("newImgURL:", newImgURL);
+    // dish.imgURL = newImgURL;
 
     await updateDocument(path, {
       ingredients: ingredients,
+      description: description,
+      price: price,
+      imgURL: newImgURL,
     });
     navigate(-1);
   }
@@ -50,7 +67,6 @@ export default function AdminDish() {
       <div className="admin-content-block-edit">
         <form className="admin-form">
           <div>
-            {" "}
             <label>Title</label>
             <input placeholder="title" type="text" value={dish.title} />
           </div>

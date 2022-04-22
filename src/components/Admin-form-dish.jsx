@@ -4,10 +4,10 @@ export default function AdminFormDish({ formProps }) {
   const [
     title,
     setTitle,
-    description,
-    setDescription,
     ingredients,
     setIngredients,
+    description,
+    setDescription,
     setFile,
     onCreate,
     price,

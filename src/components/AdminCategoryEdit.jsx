@@ -58,7 +58,6 @@ export default function AdminCategoryEdit() {
     navigate(-1);
   }
 
-  console.log();
   return (
     <div className="admin-grid">
       <div className="admin-header">

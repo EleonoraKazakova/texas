@@ -1,148 +1,297 @@
-.admin-grid
-  display: grid
-  grid-template-columns: 250px auto 250px
-  grid-template-rows: 300px auto auto 100px
-  min-height: 100vh
-  
-.admin-content
-  color: #4d4a4a
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
+@media (max-width: 1099px) 
+  .admin-grid
+    display: grid
+    grid-template-columns:  auto 
+    grid-template-rows: 300px auto auto 100px
+    min-height: 100vh
+    
+  .admin-content
+    color: #4d4a4a
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
-.admin-form-background
-  grid-column: 1 / 4
-  grid-row: 2 / 3
-  background-color: #babec7
-  
+  .admin-form-background
+    grid-column: 1 / 4
+    grid-row: 2 / 3
+    background-color: #babec7  
 
-.admin-form
-  grid-column: 2 / 3
-  grid-row: 2 / 3  
-  display: flex
-  flex-direction: column
-  padding: 15px
-  gap: 10px
+  .admin-form
+    grid-column: 2 / 3
+    grid-row: 2 / 3  
+    display: flex
+    flex-direction: column
+    padding: 15px
+    gap: 10px
 
-.admin-content-block
-  grid-column: 2 / 3
-  grid-row: 3 / 4
-  //background-color: #a9c2f8
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
+  .admin-content-block
+    grid-column: 2 / 3
+    grid-row: 3 / 4
+    //background-color: #a9c2f8
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
-.admin-content-block-edit
-  grid-column: 2 / 3
-  grid-row: 2 / 3
-  //background-color: #a9c2f8
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
+  .admin-content-block-edit
+    grid-column: 2 / 3
+    grid-row: 2 / 3
+    //background-color: #a9c2f8
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
 
-.admin-button
-  background-color: #fff
-  color: #3d3d3d
-  border-radius: 15px
-  width: 130px
-  display: inline-block
-  height: 25px
+  .admin-button
+    background-color: #fff
+    color: #3d3d3d
+    border-radius: 15px
+    width: 130px
+    display: inline-block
+    height: 25px
 
-.admin-block
-  display: flex
-  gap: 10px
+  .admin-block
+    display: flex
+    gap: 10px
 
-.admin-text
-  display: flex
-  flex-direction: column
-  gap: 10px
+  .admin-text
+    display: flex
+    flex-direction: column
+    gap: 10px
 
-.admin-header
-  grid-column: 1 / 4
-  grid-row: 1 / 2
-  width: 100%
-  background-color: #7d91af
-  height: 100%
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
-  gap: 10px
+  .admin-header
+    grid-column: 1 / 4
+    grid-row: 1 / 2
+    width: 100%
+    background-color: #7d91af
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    gap: 10px
 
-.admin-category
-  display: flex
-  width: 400px
-  height: 100px
-  border-bottom: 1px solid black
-  align-items: center
-  justify-content: space-between
-  width: 100%
-  padding: 20px
-  height: 100px
+  .admin-category
+    display: flex
+    width: 400px
+    height: 100px
+    border-bottom: 1px solid black
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    /*padding: 5px*/
+    height: 100px
 
-.admin-category-thead
-  display: flex 
-  width: 400px
-  height: 100px
-  border-bottom: 1px solid black
-  align-items: center
-  justify-content: space-between
-  width: 100%
-  padding: 20px
-  height: 50px
-  font-weight: bold
+  .admin-category-thead
+    display: flex 
+    width: 100%
+    height: 100px
+    border-bottom: 1px solid black
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    /*padding: 5px*/
+    height: 50px
+    font-weight: bold
 
-.admin-category-block
-  display: flex
-  gap: 20px
-  flex-direction: column
-  width: 100%
+  .admin-category-block
+    display: flex
+    gap: 20px
+    flex-direction: column
+    width: 90%
 
-.admin-foto
- height: 100px
-  width: 100px
+  .admin-foto
+    height: 30px
 
-input[type="text"] 
-  width: 100%
-  margin: 0px
-  background: #ffffff
-  border-bottom: 1px solid #6b1905
-  outline: none
-  border-top: 0px
-  border-left: 0px
-  border-right: 0px
-  border-radius: 8px
-  touch-action: manipulation
-  height: 25px
+  input[type="text"] 
+    width: 100%
+    margin: 0px
+    background: #ffffff
+    border-bottom: 1px solid #6b1905
+    outline: none
+    border-top: 0px
+    border-left: 0px
+    border-right: 0px
+    border-radius: 8px
+    touch-action: manipulation
+    height: 25px
 
-.admin-td-img
-  width: 200px
-  display: flex
-  justify-content: center
+  .admin-td-img
+    width: 50px
+    display: flex
+    justify-content: center
 
-.admin-td-delete
-  width: 150px
-  display: flex
-  justify-content: center
+  .admin-td-delete
+    width: 50px
+    display: flex
+    justify-content: center
 
-.admin-td-title
-  width: 100px
-  display: flex
-  justify-content: center
+  .admin-td-title
+    width: 50px
+    display: flex
+    justify-content: center
 
-.admin-td-description
-  width: 300px
-  display: flex
-  justify-content: center
-  align-items: center
+  .admin-td-description
+    width: 100px
+    display: flex
+    justify-content: center
+    align-items: center
 
-.admin-label
-  display: flex
-  gap:10px
+  .admin-label
+    display: flex
+    gap:10px
 
-.admin-title
-  display: flex
-  justify-content: center
+  .admin-title
+    display: flex
+    justify-content: center
+
+@media (min-width: 1100px)  
+  .admin-grid
+    display: grid
+    grid-template-columns: 250px auto 250px
+    grid-template-rows: 300px auto auto 100px
+    min-height: 100vh
+    
+  .admin-content
+    color: #4d4a4a
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  .admin-form-background
+    grid-column: 1 / 4
+    grid-row: 2 / 3
+    background-color: #babec7
+    
+
+  .admin-form
+    grid-column: 2 / 3
+    grid-row: 2 / 3  
+    display: flex
+    flex-direction: column
+    padding: 15px
+    gap: 10px
+
+  .admin-content-block
+    grid-column: 2 / 3
+    grid-row: 3 / 4
+    //background-color: #a9c2f8
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  .admin-content-block-edit
+    grid-column: 2 / 3
+    grid-row: 2 / 3
+    //background-color: #a9c2f8
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  .admin-button
+    background-color: #fff
+    color: #3d3d3d
+    border-radius: 15px
+    width: 130px
+    display: inline-block
+    height: 25px
+
+  .admin-block
+    display: flex
+    gap: 10px
+
+  .admin-text
+    display: flex
+    flex-direction: column
+    gap: 10px
+
+  .admin-header
+    grid-column: 1 / 4
+    grid-row: 1 / 2
+    width: 100%
+    background-color: #7d91af
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    gap: 10px
+
+  .admin-category
+    display: flex
+    width: 400px
+    height: 100px
+    border-bottom: 1px solid black
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    padding: 20px
+    height: 100px
+
+  .admin-category-thead
+    display: flex 
+    width: 400px
+    height: 100px
+    border-bottom: 1px solid black
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    padding: 20px
+    height: 50px
+    font-weight: bold
+
+  .admin-category-block
+    display: flex
+    gap: 20px
+    flex-direction: column
+    width: 100%
+
+  .admin-foto
+    height: 100px
+    width: 100px
+
+  input[type="text"] 
+    width: 100%
+    margin: 0px
+    background: #ffffff
+    border-bottom: 1px solid #6b1905
+    outline: none
+    border-top: 0px
+    border-left: 0px
+    border-right: 0px
+    border-radius: 8px
+    touch-action: manipulation
+    height: 25px
+
+  .admin-td-img
+    width: 200px
+    display: flex
+    justify-content: center
+
+  .admin-td-delete
+    width: 150px
+    display: flex
+    justify-content: center
+
+  .admin-td-title
+    width: 100px
+    display: flex
+    justify-content: center
+
+  .admin-td-description
+    width: 300px
+    display: flex
+    justify-content: center
+    align-items: center
+
+  .admin-label
+    display: flex
+    gap:10px
+
+  .admin-title
+    display: flex
+    justify-content: center

@@ -6,7 +6,7 @@ export default function AdminFormCategory({ formProps }) {
 
   return (
     <div className="admin-form">
-      <h3 className="admin-title">Add cotegory</h3>
+      <h3 className="admin-title">Add category</h3>
       <form onSubmit={onUpdate} className="admin-form">
         <div>
           <label>Title</label>
