@@ -64,12 +64,13 @@ export default function AdminCategoryEdit() {
       <div className="admin-header">
         <h1>Edit category</h1>
       </div>
-      <div className="admin-content-block">
-        <form onSubmit={onUpdate}>
+      <div className="admin-content-block-edit">
+        <form onSubmit={onUpdate} className="admin-form">
           <div>
             <label>Title</label>
             <input
               placeholder="Title"
+              type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
             />
@@ -78,11 +79,12 @@ export default function AdminCategoryEdit() {
             <label>Description</label>
             <input
               placeholder="description"
+              type="text"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
             />
           </div>
-          <div>
+          <div className="admin-label">
             <label>Choose picture</label>
             <input
               type="file"

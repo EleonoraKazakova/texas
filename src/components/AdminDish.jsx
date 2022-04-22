@@ -43,28 +43,52 @@ export default function AdminDish() {
   }
 
   return (
-    <div className="admin-content">
-      <div className="admin-text">
+    <div className="admin-grid">
+      <div className="admin-header">
         <div>{dish.title}</div>
       </div>
-      <form>
-        <input placeholder="title" value={dish.title} />
-        <input placeholder="description" value={dish.description} />
-        <input
-          placeholder="ingredients"
-          value={ingredients}
-          onChange={(event) => setIngredients(event.target.value)}
-        />
-        <input placeholder="price" value={dish.price} />
-        <input type="file" accept="image/png, image/jpeg" />
+      <div className="admin-content-block-edit">
+        <form className="admin-form">
+          <div>
+            {" "}
+            <label>Title</label>
+            <input placeholder="title" type="text" value={dish.title} />
+          </div>
+          <div>
+            <label>Description</label>
+            <input
+              placeholder="description"
+              type="text"
+              value={dish.description}
+            />
+          </div>
+          <div>
+            <label>Ingredients</label>
+            <input
+              placeholder="ingredients"
+              type="text"
+              value={ingredients}
+              onChange={(event) => setIngredients(event.target.value)}
+            />
+          </div>
+          <div>
+            <label>Price</label>
+            <input placeholder="price" type="text" value={dish.price} />
+          </div>
+          <div className="admin-label">
+            <label>Choose picture</label>
+            <input type="file" accept="image/png, image/jpeg" />
+          </div>
 
-        <button className="admin-button" onClick={onUpdate}>
-          Submit
-        </button>
-      </form>
-      <button className="admin-button" onClick={onDelete}>
-        Delete dish
-      </button>
+          <button className="admin-button" onClick={onUpdate}>
+            Submit
+          </button>
+
+          <button className="admin-button" onClick={onDelete}>
+            Delete dish
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
