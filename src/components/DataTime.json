@@ -1,0 +1,8 @@
+{
+  "schedule": [
+    ["Monday to Friday", "08: 00 - 20:00"],
+    ["Saturdays", "09:00 - 22:00"],
+    ["Sundays", "10:00 - 22:00"]
+  ],
+  "address": ["Gamla torget 5, 753 20 Uppsala"]
+}

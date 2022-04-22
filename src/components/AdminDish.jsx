@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import {
   getDocument,
@@ -28,10 +28,10 @@ export default function AdminDish() {
       console.log("data:", data);
       setDish(data);
       setIngredients(data.ingredients);
-      setPrice(data.price);
       setDescription(data.description);
       setFile(data.imgURL);
       setTitle(data.title);
+      setPrice(data.price);
     }
     loadData();
   }, []);
@@ -45,8 +45,9 @@ export default function AdminDish() {
     // dish.imgURL = newImgURL;
 
     await updateDocument(path, {
-      ingredients: ingredients,
       description: description,
+      ingredients: ingredients,
+      title: title,
       price: price,
       imgURL: newImgURL,
     });

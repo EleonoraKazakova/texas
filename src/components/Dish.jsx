@@ -24,7 +24,15 @@ export default function Dish() {
   return (
     <div>
       <img src={dish.imgURL} className="dish-img" />
-      {dish.title}
+      <div className="dish-block">
+        <div className="dish-card">
+          <h2>{dish.title}</h2>
+          <div> {dish.description}</div>
+          <div>Ingredients: {dish.ingredients}</div>
+          <div>Price: {dish.price}</div>
+          <button>Go back</button>
+        </div>
+      </div>
     </div>
   );
 }
