@@ -1,8 +1,15 @@
 import "../styles/admin.sass";
+import EmptyImg from "../images/empty.png";
 
-export default function AdminFormCategory({ formProps }) {
-  const [title, setTitle, description, setDescription, setFile, onUpdate] =
-    formProps;
+export default function AdminFormCategory({
+  itemData,
+  descriptionData,
+  fileData,
+  onUpdate,
+}) {
+  const [title, setTitle] = itemData;
+  const [description, setDescription] = descriptionData;
+  const [file, setFile] = fileData;
 
   return (
     <div className="admin-form">
@@ -28,6 +35,10 @@ export default function AdminFormCategory({ formProps }) {
         </div>
         <div className="admin-label">
           <label>Choose picture</label>
+          <img
+            src={file !== null ? URL.createObjectURL(file) : EmptyImg}
+            className="admin-foto"
+          />
           <input
             type="file"
             accept="image/png, image/jpeg"

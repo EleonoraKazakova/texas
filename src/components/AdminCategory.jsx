@@ -8,6 +8,7 @@ import {
 import { useParams, Link } from "react-router-dom";
 import { createFile } from "../scripts/cloudStorage";
 import AdminFormDish from "./Admin-form-dish";
+import EmptyImg from "../images/empty.png";
 
 export default function AdminCategory() {
   const params = useParams();
@@ -52,7 +53,11 @@ export default function AdminCategory() {
     const filePath = path + fileName;
     const imgURL = await createFile(filePath, file);
 
-    newDish.imgURL = imgURL;
+    if (file === null) {
+      newDish.imgURL = EmptyImg;
+    } else {
+      newDish.imgURL = imgURL;
+    }
 
     await addDocument(path, newDish);
     setDishes([...dishes, newDish]);
@@ -102,18 +107,12 @@ export default function AdminCategory() {
 
       <div className="admin-form">
         <AdminFormDish
-          formProps={[
-            title,
-            setTitle,
-            ingredients,
-            setIngredients,
-            description,
-            setDescription,
-            setFile,
-            onCreate,
-            price,
-            setPrice,
-          ]}
+          itemData={[title, setTitle]}
+          descriptionData={[description, setDescription]}
+          fileData={[file, setFile]}
+          formProps={[ingredients, setIngredients]}
+          priceData={[price, setPrice]}
+          onCreate={onCreate}
         />
       </div>
 

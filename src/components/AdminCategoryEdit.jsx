@@ -7,11 +7,13 @@ import {
   updateDocument,
 } from "../scripts/fireStore";
 import "../styles/admin.sass";
+import EmptyImg from "../images/empty.png";
 
 export default function AdminCategoryEdit() {
   const params = useParams();
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
+  const [category, setCategory] = useState("");
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [file, setFile] = useState(null);
@@ -30,7 +32,7 @@ export default function AdminCategoryEdit() {
       setDescription(category.description);
       setTitle(category.title);
       setType(category.type);
-      setFile(category.imgURL);
+      setCategory(category);
     }
     loadData("categoriesTexas/allDishes");
   }, []);
@@ -40,7 +42,7 @@ export default function AdminCategoryEdit() {
     const newCategory = {
       title: title,
       type: type,
-      imgURL: file,
+      imgURL: "",
       description: description,
     };
 
@@ -48,7 +50,11 @@ export default function AdminCategoryEdit() {
     const filePath = path + fileName;
     const imgURL = await createFile(filePath, file);
 
-    newCategory.imgURL = imgURL;
+    if (file === null) {
+      newCategory.imgURL = EmptyImg;
+    } else {
+      newCategory.imgURL = imgURL;
+    }
 
     await updateDocument(path, {
       subCategory: categories.map((category) =>
@@ -85,6 +91,10 @@ export default function AdminCategoryEdit() {
           </div>
           <div className="admin-label">
             <label>Choose picture</label>
+            <img
+              src={file !== null ? URL.createObjectURL(file) : category.imgURL}
+              className="admin-foto"
+            />
             <input
               type="file"
               accept="image/png, image/jpeg"

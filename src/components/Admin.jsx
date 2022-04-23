@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/admin.sass";
 import AdminFormCategory from "./Admin-form-category";
+import EmptyImg from "../images/empty.png";
 
 export default function Admin() {
   const [title, setTitle] = useState("");
@@ -21,12 +22,19 @@ export default function Admin() {
     loadData("categoriesTexas/allDishes");
   }, []);
 
+  function clearForm() {
+    setTitle("");
+    setDescription("");
+    setFile(null);
+  }
+
   async function onUpdate(event) {
     event.preventDefault();
+
     const newCategory = {
       title: title,
       type: title.toLowerCase(),
-      imgURL: "",
+      imgURL: EmptyImg,
       description: description,
     };
 
@@ -34,12 +42,18 @@ export default function Admin() {
     const filePath = path + fileName;
     const imgURL = await createFile(filePath, file);
 
-    newCategory.imgURL = imgURL;
+    if (file === null) {
+      newCategory.imgURL = EmptyImg;
+    } else {
+      newCategory.imgURL = imgURL;
+    }
 
     await updateDocument(path, {
       subCategory: [...categories, newCategory],
     });
     setCategories([...categories, newCategory]);
+
+    clearForm();
   }
 
   async function onDelete(event, title) {
@@ -79,14 +93,10 @@ export default function Admin() {
 
       <div className="admin-form">
         <AdminFormCategory
-          formProps={[
-            title,
-            setTitle,
-            description,
-            setDescription,
-            setFile,
-            onUpdate,
-          ]}
+          itemData={[title, setTitle]}
+          descriptionData={[description, setDescription]}
+          fileData={[file, setFile]}
+          onUpdate={onUpdate}
         />
       </div>
       <div className="admin-content-block">

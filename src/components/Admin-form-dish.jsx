@@ -1,18 +1,20 @@
 import "../styles/admin.sass";
+import EmptyImg from "../images/empty.png";
 
-export default function AdminFormDish({ formProps }) {
-  const [
-    title,
-    setTitle,
-    ingredients,
-    setIngredients,
-    description,
-    setDescription,
-    setFile,
-    onCreate,
-    price,
-    setPrice,
-  ] = formProps;
+export default function AdminFormDish({
+  itemData,
+  descriptionData,
+  fileData,
+  formProps,
+  priceData,
+  onCreate,
+}) {
+  const [title, setTitle] = itemData;
+  const [description, setDescription] = descriptionData;
+  const [file, setFile] = fileData;
+  const [ingredients, setIngredients] = formProps;
+  const [price, setPrice] = priceData;
+
   return (
     <div className="admin-form">
       <h3 className="admin-title">Add dish</h3>
@@ -55,6 +57,7 @@ export default function AdminFormDish({ formProps }) {
         </div>
         <div className="admin-label">
           <label>Choose image</label>
+          <img src={EmptyImg} className="admin-foto" />
           <input
             type="file"
             accept="image/png, image/jpeg"
