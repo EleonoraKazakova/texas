@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import "../styles/admin.sass";
-import { addDocument, getCollection } from "../scripts/fireStore";
+import "../../styles/admin.sass";
+import { addDocument, getCollection } from "../../scripts/fireStore";
 import { useParams, Link } from "react-router-dom";
-import { createFile } from "../scripts/cloudStorage";
+import { createFile } from "../../scripts/cloudStorage";
 import AdminFormDish from "./Admin-form-dish";
-import EmptyImg from "../images/empty.png";
+import EmptyImg from "../../images/empty.png";
 import AdminDishCard from "./AdminDishCard";
 import AdminDishTable from "./AdminDishTable";
 
@@ -44,7 +44,7 @@ export default function AdminCategory() {
       description: description,
       ingredients: ingredients,
       imgURL: "",
-      price: price,
+      price: `$ ${price}`,
     };
 
     const fileName = `category-${title}.jpg`;

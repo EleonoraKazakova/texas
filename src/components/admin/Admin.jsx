@@ -1,10 +1,10 @@
-import { updateDocument, getDocument } from "../scripts/fireStore";
-import { createFile } from "../scripts/cloudStorage";
+import { updateDocument, getDocument } from "../../scripts/fireStore";
+import { createFile } from "../../scripts/cloudStorage";
 import { useState, useEffect } from "react";
-import "../styles/admin.sass";
+import "../../styles/admin.sass";
 import AdminFormCategory from "./Admin-form-category";
-import EmptyImg from "../images/empty.png";
-import CategoryCard from "./CategoryCard";
+import EmptyImg from "../../images/empty.png";
+import AdminCategoryCard from "./AdminCategoryCard";
 import AdminCategoryTable from "./AdminCategoryTable";
 
 export default function Admin() {
@@ -59,7 +59,7 @@ export default function Admin() {
   }
 
   const categoryCard = categories.map((item) => (
-    <CategoryCard
+    <AdminCategoryCard
       item={item}
       categories={categories}
       setCategories={setCategories}

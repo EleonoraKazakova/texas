@@ -1,5 +1,5 @@
-import "../styles/admin.sass";
-import EmptyImg from "../images/empty.png";
+import "../../styles/admin.sass";
+import EmptyImg from "../../images/empty.png";
 
 export default function AdminFormDish({
   itemData,
@@ -8,7 +8,6 @@ export default function AdminFormDish({
   formProps,
   priceData,
   onCreate,
-  dishes,
 }) {
   const [title, setTitle] = itemData;
   const [description, setDescription] = descriptionData;
@@ -24,6 +23,7 @@ export default function AdminFormDish({
           <label>Title</label>
           <input
             placeholder="title"
+            required
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}

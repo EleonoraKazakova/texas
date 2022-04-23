@@ -5,10 +5,10 @@ import Category from "./components/Category";
 import { Routes, Route } from "react-router-dom";
 import Dish from "./components/Dish";
 import NavigationBar from "./components/NavigationBar";
-import Admin from "./components/Admin";
-import AdminCategory from "./components/AdminCategory";
-import AdminDish from "./components/AdminDish";
-import AdminCategoryEdit from "./components/AdminCategoryEdit";
+import Admin from "./components/admin/Admin";
+import AdminCategory from "./components/admin/AdminCategory";
+import AdminDish from "./components/admin/AdminDish";
+import AdminCategoryEdit from "./components/admin/AdminCategoryEdit";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 

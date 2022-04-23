@@ -4,9 +4,9 @@ import {
   getDocument,
   deleteDocument,
   updateDocument,
-} from "../scripts/fireStore";
-import { createFile } from "../scripts/cloudStorage";
-import "../styles/admin.sass";
+} from "../../scripts/fireStore";
+import { createFile } from "../../scripts/cloudStorage";
+import "../../styles/admin.sass";
 
 export default function AdminDish() {
   const params = useParams();
@@ -51,7 +51,7 @@ export default function AdminDish() {
       description: description,
       ingredients: ingredients,
       title: title,
-      price: price,
+      price: `$ ${price}`,
       imgURL: newImgURL,
     });
     navigate(-1);
@@ -72,6 +72,7 @@ export default function AdminDish() {
             <label>Title</label>
             <input
               placeholder="title"
+              required
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}

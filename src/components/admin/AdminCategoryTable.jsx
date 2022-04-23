@@ -1,4 +1,4 @@
-import "../styles/admin.sass";
+import "../../styles/admin.sass";
 
 export default function AdminCategoryTable({ categoryCard }) {
   return (

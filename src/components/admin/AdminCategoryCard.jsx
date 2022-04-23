@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { updateDocument } from "../scripts/fireStore";
+import { updateDocument } from "../../scripts/fireStore";
 
-export default function CategoryCard({
+export default function AdminCategoryCard({
   item,
   categories,
   setCategories,

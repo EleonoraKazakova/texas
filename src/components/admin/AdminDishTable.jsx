@@ -1,4 +1,4 @@
-import "../styles/admin.sass";
+import "../../styles/admin.sass";
 
 export default function AdminDishTable({ dishCard }) {
   return (

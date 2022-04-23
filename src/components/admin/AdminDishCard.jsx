@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { deleteDocument } from "../scripts/fireStore";
+import { deleteDocument } from "../../scripts/fireStore";
 
 export default function AdminDishCard({ doc, params, dishes, setDishes }) {
   async function onDelete(dish) {

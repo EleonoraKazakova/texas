@@ -1,5 +1,5 @@
-import "../styles/admin.sass";
-import EmptyImg from "../images/empty.png";
+import "../../styles/admin.sass";
+import EmptyImg from "../../images/empty.png";
 
 export default function AdminFormCategory({
   itemData,
@@ -19,6 +19,7 @@ export default function AdminFormCategory({
           <label>Title</label>
           <input
             placeholder="Title"
+            required
             type="text"
             value={title}
             onChange={(event) => setTitle(event.target.value)}

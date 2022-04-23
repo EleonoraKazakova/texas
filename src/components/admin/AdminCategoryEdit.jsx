@@ -1,9 +1,9 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { createFile } from "../scripts/cloudStorage";
-import { getDocument, updateDocument } from "../scripts/fireStore";
-import "../styles/admin.sass";
-import EmptyImg from "../images/empty.png";
+import { createFile } from "../../scripts/cloudStorage";
+import { getDocument, updateDocument } from "../../scripts/fireStore";
+import "../../styles/admin.sass";
+import EmptyImg from "../../images/empty.png";
 
 export default function AdminCategoryEdit() {
   const params = useParams();
