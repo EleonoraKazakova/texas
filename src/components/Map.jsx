@@ -20,7 +20,7 @@ export default function Map() {
           })
         }
       >
-        <Popup>Pepper. Vegan restaurant</Popup>
+        <Popup>Texas. BBQ restaurant</Popup>
       </Marker>
     </MapContainer>
   );

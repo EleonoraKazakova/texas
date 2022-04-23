@@ -16,7 +16,7 @@ export default function AdminDish() {
   const [ingredients, setIngredients] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [file, setFile] = useState(null);
+  const [fileBytes, setFileBytes] = useState(null);
 
   const path = `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDish}`;
 
@@ -29,7 +29,6 @@ export default function AdminDish() {
       setDish(data);
       setIngredients(data.ingredients);
       setDescription(data.description);
-      setFile(data.imgURL);
       setTitle(data.title);
       setPrice(data.price);
     }
@@ -38,11 +37,14 @@ export default function AdminDish() {
 
   async function onUpdate(event) {
     event.preventDefault();
-    const fileName = `category-${title}.jpg`;
-    const filePath = path + fileName;
-    const newImgURL = await createFile(filePath, file);
-    console.log("newImgURL:", newImgURL);
-    // dish.imgURL = newImgURL;
+    let newImgURL = "";
+    if (fileBytes === null) {
+      newImgURL = dish.imgURL;
+    } else {
+      const fileName = `category-${title}.jpg`;
+      const filePath = path + fileName;
+      newImgURL = await createFile(filePath, fileBytes);
+    }
 
     await updateDocument(path, {
       description: description,
@@ -54,8 +56,6 @@ export default function AdminDish() {
     navigate(-1);
   }
 
-  console.log("dish:", dish);
-
   async function onDelete() {
     await deleteDocument(path);
   }
@@ -63,20 +63,26 @@ export default function AdminDish() {
   return (
     <div className="admin-grid">
       <div className="admin-header">
-        <div>{dish.title}</div>
+        <h1>{title}</h1>
       </div>
       <div className="admin-content-block-edit">
         <form className="admin-form">
           <div>
             <label>Title</label>
-            <input placeholder="title" type="text" value={dish.title} />
+            <input
+              placeholder="title"
+              type="text"
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+            />
           </div>
           <div>
             <label>Description</label>
             <input
               placeholder="description"
               type="text"
-              value={dish.description}
+              value={description}
+              onChange={(event) => setDescription(event.target.value)}
             />
           </div>
           <div>
@@ -90,11 +96,21 @@ export default function AdminDish() {
           </div>
           <div>
             <label>Price</label>
-            <input placeholder="price" type="text" value={dish.price} />
+            <input
+              placeholder="price"
+              type="text"
+              value={price}
+              onChange={(event) => setPrice(event.target.value)}
+            />
           </div>
           <div className="admin-label">
+            <img src={dish.imgURL} className="admin-foto" />
             <label>Choose picture</label>
-            <input type="file" accept="image/png, image/jpeg" />
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={(event) => setFileBytes(event.target.files[0])}
+            />
           </div>
 
           <button className="admin-button" onClick={onUpdate}>
