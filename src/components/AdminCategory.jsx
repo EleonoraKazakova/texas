@@ -58,11 +58,13 @@ export default function AdminCategory() {
     } else {
       newDish.imgURL = imgURL;
     }
-
+    if (newDish.title === "") return;
     await addDocument(path, newDish);
     setDishes([...dishes, newDish]);
     clearForm();
   }
+
+  console.log("file:", file);
 
   async function onDelete(dish) {
     await deleteDocument(
@@ -97,7 +99,7 @@ export default function AdminCategory() {
   return (
     <div className="admin-grid">
       <div className="admin-header">
-        <h1>Admin page of dishes</h1>
+        <h1>Admin page of {params.adminCategory.toUpperCase()}</h1>
         <button className="admin-button">
           <Link to={`/admin/${params.adminCategory}/edit`}>Edit category</Link>
         </button>
@@ -113,6 +115,7 @@ export default function AdminCategory() {
           formProps={[ingredients, setIngredients]}
           priceData={[price, setPrice]}
           onCreate={onCreate}
+          dishes={dishes}
         />
       </div>
 

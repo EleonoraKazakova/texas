@@ -1,11 +1,7 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { createFile } from "../scripts/cloudStorage";
-import {
-  getDocument,
-  deleteDocument,
-  updateDocument,
-} from "../scripts/fireStore";
+import { getDocument, updateDocument } from "../scripts/fireStore";
 import "../styles/admin.sass";
 import EmptyImg from "../images/empty.png";
 
@@ -61,7 +57,7 @@ export default function AdminCategoryEdit() {
         category.type !== type ? category : newCategory
       ),
     });
-    navigate(-1);
+    navigate(-2);
   }
 
   return (
@@ -90,7 +86,7 @@ export default function AdminCategoryEdit() {
             />
           </div>
           <div className="admin-label">
-            <label>Choose picture</label>
+            <label className="admin-button">Choose picture</label>
             <img
               src={file !== null ? URL.createObjectURL(file) : category.imgURL}
               className="admin-foto"
@@ -101,6 +97,9 @@ export default function AdminCategoryEdit() {
               onChange={(event) => setFile(event.target.files[0])}
             />
           </div>
+          <button className="admin-button" onClick={() => setFile(null)}>
+            Delete picture
+          </button>
           <button className="admin-button">Submit</button>
         </form>
       </div>

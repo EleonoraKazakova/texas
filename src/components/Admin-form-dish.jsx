@@ -8,6 +8,7 @@ export default function AdminFormDish({
   formProps,
   priceData,
   onCreate,
+  dishes,
 }) {
   const [title, setTitle] = itemData;
   const [description, setDescription] = descriptionData;
@@ -56,14 +57,20 @@ export default function AdminFormDish({
           />
         </div>
         <div className="admin-label">
-          <label>Choose image</label>
-          <img src={EmptyImg} className="admin-foto" />
+          <button className="admin-button">Choose image</button>
+          <img
+            src={file !== null ? URL.createObjectURL(file) : EmptyImg}
+            className="admin-foto"
+          />
           <input
             type="file"
             accept="image/png, image/jpeg"
             onChange={(event) => setFile(event.target.files[0])}
           />
         </div>
+        <button className="admin-button" onClick={() => setFile(null)}>
+          Delete picture
+        </button>
 
         <button className="admin-button">Add dish</button>
       </form>

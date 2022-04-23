@@ -34,7 +34,10 @@ export default function AdminFormCategory({
           />
         </div>
         <div className="admin-label">
-          <label>Choose picture</label>
+          <label for="file" className="admin-button">
+            Choose picture
+          </label>
+
           <img
             src={file !== null ? URL.createObjectURL(file) : EmptyImg}
             className="admin-foto"
@@ -45,6 +48,10 @@ export default function AdminFormCategory({
             onChange={(event) => setFile(event.target.files[0])}
           />
         </div>
+
+        <button className="admin-button" onClick={() => setFile(null)}>
+          Delete picture
+        </button>
         <button className="admin-button">Add category</button>
       </form>
     </div>

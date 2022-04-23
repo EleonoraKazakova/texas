@@ -120,6 +120,9 @@ export default function AdminDish() {
               onChange={(event) => setFileBytes(event.target.files[0])}
             />
           </div>
+          <button className="admin-button" onClick={() => setFileBytes(null)}>
+            Delete picture
+          </button>
 
           <button className="admin-button" onClick={onUpdate}>
             Submit
