@@ -44,7 +44,7 @@ export default function AdminCategory() {
       description: description,
       ingredients: ingredients,
       imgURL: "",
-      price: `$ ${price}`,
+      price: price,
     };
 
     const fileName = `category-${title}.jpg`;
@@ -75,9 +75,16 @@ export default function AdminCategory() {
     <div className="admin-grid">
       <div className="admin-header">
         <h1>Admin page of {params.adminCategory.toUpperCase()}</h1>
-        <button className="admin-button">
-          <Link to={`/admin/${params.adminCategory}/edit`}>Edit category</Link>
-        </button>
+        <div className="admin-block-buttons">
+          <button className="admin-button">
+            <Link to={`/admin/${params.adminCategory}/edit`}>
+              Edit category
+            </Link>
+          </button>
+          <button className="admin-button">
+            <Link to={`/admin`}>Categories page</Link>
+          </button>
+        </div>
       </div>
 
       <div className="admin-form-background"></div>

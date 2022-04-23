@@ -1,10 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getDocument } from "../scripts/fireStore";
 import { useEffect, useState } from "react";
 import "../styles/dish.sass";
+import "../styles/base/button.sass";
 
 export default function Dish() {
   const params = useParams();
+  const navigate = useNavigate();
   const [dish, setDish] = useState([]);
 
   console.log("params:", params);
@@ -29,8 +31,10 @@ export default function Dish() {
           <h2>{dish.title}</h2>
           <div> {dish.description}</div>
           <div>Ingredients: {dish.ingredients}</div>
-          <div>Price: {dish.price}</div>
-          <button>Go back</button>
+          <div>Price: $ {dish.price}</div>
+          <button onClick={() => navigate(-1)} className="button">
+            Go back
+          </button>
         </div>
       </div>
     </div>

@@ -9,10 +9,10 @@ export default function NavigationBar() {
         <img src={Logo} className="navigationBar-logo" />{" "}
       </Link>
       <div className="navigationBar-block">
-        <Link to="/menu">
+        <Link to="/menu" className="navigationBar-link">
           <h3>Menu</h3>
         </Link>
-        <Link to="/contact">
+        <Link to="/contact" className="navigationBar-link">
           <h3>Contact</h3>
         </Link>
       </div>

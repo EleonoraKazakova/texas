@@ -21,12 +21,13 @@ export default function Category() {
     <button key={doc.title} className="category-card">
       <img src={doc.imgURL} className="category-img-dish" />
       {doc.title}
+      <p>Price: $ {doc.price}</p>
 
-      <Link to={`/menu/${params.category}/${doc.id}`}>See more</Link>
+      <Link to={`/menu/${params.category}/${doc.id}`} className="menu-link">
+        See more
+      </Link>
     </button>
   ));
-
-  console.log("document:", document);
 
   return (
     <div>

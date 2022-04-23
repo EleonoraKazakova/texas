@@ -1,14 +1,12 @@
-import { useParams, Link } from "react-router-dom";
-import "../styles/homePage.css";
-import "../styles/base/button.css";
+import { Link } from "react-router-dom";
+import "../styles/homePage.sass";
+import "../styles/base/button.sass";
 
 export default function HomePage() {
-  const params = useParams();
-
   return (
-    <div className="welcomePage-block">
+    <div className="homePage-block">
       <div className="homePage-text">
-        <h1 className="welcomePage-title">Texas</h1>
+        <h1 className="homePage-title">Texas</h1>
         <h3>BBQ restaurant</h3>
         <button className="button">
           <Link to={`/menu`}>

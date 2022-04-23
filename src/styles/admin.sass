@@ -1,7 +1,7 @@
 @media (max-width: 1099px) 
   .admin-grid
     display: grid
-    grid-template-columns:  auto 
+    grid-template-columns: auto 
     grid-template-rows: 300px auto auto 100px
     min-height: 100vh
     
@@ -13,31 +13,30 @@
     align-items: center
 
   .admin-form-background
-    grid-column: 1 / 4
+    grid-column: 1 / 2
     grid-row: 2 / 3
     background-color: #babec7  
 
   .admin-form
-    grid-column: 2 / 3
+    grid-column: 1 / 2
     grid-row: 2 / 3  
     display: flex
     flex-direction: column
-    padding: 15px
+    padding: 5px
     gap: 10px
+    min-width: 300px
 
   .admin-content-block
-    grid-column: 2 / 3
+    grid-column: 1 / 2
     grid-row: 3 / 4
-    //background-color: #a9c2f8
     display: flex
     flex-direction: column
     justify-content: center
     align-items: center
 
   .admin-content-block-edit
-    grid-column: 2 / 3
+    grid-column: 1 / 2
     grid-row: 2 / 3
-    //background-color: #a9c2f8
     display: flex
     flex-direction: column
     justify-content: center
@@ -52,6 +51,7 @@
     height: 25px
     justify-content: center
     align-items: center
+    font-size: 12px
 
   .admin-block
     display: flex
@@ -63,7 +63,7 @@
     gap: 10px
 
   .admin-header
-    grid-column: 1 / 4
+    grid-column: 1 / 2
     grid-row: 1 / 2
     width: 100%
     background-color: #7d91af
@@ -82,7 +82,6 @@
     align-items: center
     justify-content: space-between
     width: 100%
-    /*padding: 5px*/
     height: 100px
 
   .admin-category-thead
@@ -93,7 +92,6 @@
     align-items: center
     justify-content: space-between
     width: 100%
-    /*padding: 5px*/
     height: 50px
     font-weight: bold
 
@@ -101,7 +99,7 @@
     display: flex
     gap: 20px
     flex-direction: column
-    width: 90%
+    min-width: 300px
 
   .admin-foto
     height: 30px
@@ -149,6 +147,15 @@
     display: flex
     justify-content: center
 
+  .admin-block-buttons
+    display: flex
+    justify-content: center
+    gap: 20px
+    flex-direction: column
+
+  .admin-row
+    rowspan: 2
+
 @media (min-width: 1100px)  
   .admin-grid
     display: grid
@@ -180,7 +187,6 @@
   .admin-content-block
     grid-column: 2 / 3
     grid-row: 3 / 4
-    //background-color: #a9c2f8
     display: flex
     flex-direction: column
     justify-content: center
@@ -189,7 +195,6 @@
   .admin-content-block-edit
     grid-column: 2 / 3
     grid-row: 2 / 3
-    //background-color: #a9c2f8
     display: flex
     flex-direction: column
     justify-content: center
@@ -300,3 +305,8 @@
   .admin-title
     display: flex
     justify-content: center
+
+  .admin-block-buttons
+    display: flex
+    justify-content: center
+    gap: 20px

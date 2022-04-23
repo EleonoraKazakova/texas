@@ -71,6 +71,7 @@ export default function AdminCategoryEdit() {
             <label>Title</label>
             <input
               placeholder="Title"
+              required
               type="text"
               value={title}
               onChange={(event) => setTitle(event.target.value)}

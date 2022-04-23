@@ -51,7 +51,7 @@ export default function AdminDish() {
       description: description,
       ingredients: ingredients,
       title: title,
-      price: `$ ${price}`,
+      price: price,
       imgURL: newImgURL,
     });
     navigate(-1);

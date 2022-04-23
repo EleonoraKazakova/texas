@@ -1,24 +1,53 @@
 @import "./base/colors.sass"
 
-.navigationBar-content
-  background-color: $color-black
-  height: 40px
-  display: flex
-  position: fixed
-  top: 0
-  width: 100%
-  box-shadow: 0px 5px 10px #464343
-  justify-content: start
-  align-items: center
-  color: #fff
-  justify-content: space-between
+@media (max-width: 1099px)
+  .navigationBar-content
+    background-color: $color-black
+    height: 40px
+    display: flex
+    position: fixed
+    top: 0
+    width: 100%
+    box-shadow: 0px 5px 10px #464343
+    justify-content: start
+    align-items: center
+    color: #fff
+    justify-content: space-between
 
-.navigationBar-logo
-  height: 25px
-  padding-left: 50px
-  
-.navigationBar-block
-  display: flex
-  flex-direction: row
-  gap: 40px
-  padding-right: 50px
+  .navigationBar-logo
+    height: 25px
+    padding-left: 20px
+    
+  .navigationBar-block
+    display: flex
+    flex-direction: row
+    gap: 15px
+    padding-right: 20px
+
+
+@media (min-width: 1100px)
+  .navigationBar-content
+    background-color: $color-black
+    height: 40px
+    display: flex
+    position: fixed
+    top: 0
+    width: 100%
+    box-shadow: 0px 5px 10px #464343
+    justify-content: start
+    align-items: center
+    color: #fff
+    justify-content: space-between
+
+  .navigationBar-logo
+    height: 25px
+    padding-left: 50px
+    
+  .navigationBar-block
+    display: flex
+    flex-direction: row
+    gap: 40px
+    padding-right: 50px
+
+.navigationBar-link
+  color: #fff
