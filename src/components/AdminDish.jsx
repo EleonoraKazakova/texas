@@ -44,6 +44,7 @@ export default function AdminDish() {
       const fileName = `category-${title}.jpg`;
       const filePath = path + fileName;
       newImgURL = await createFile(filePath, fileBytes);
+      dish.imgURL = newImgURL;
     }
 
     await updateDocument(path, {
@@ -104,7 +105,14 @@ export default function AdminDish() {
             />
           </div>
           <div className="admin-label">
-            <img src={dish.imgURL} className="admin-foto" />
+            <img
+              src={
+                fileBytes !== null
+                  ? URL.createObjectURL(fileBytes)
+                  : dish.imgURL
+              }
+              className="admin-foto"
+            />
             <label>Choose picture</label>
             <input
               type="file"
