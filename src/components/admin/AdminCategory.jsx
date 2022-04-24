@@ -73,7 +73,7 @@ export default function AdminCategory() {
 
   return (
     <div className="admin-grid">
-      <div className="admin-header">
+      <header className="admin-header">
         <h1>Admin page of {params.adminCategory.toUpperCase()}</h1>
         <div className="admin-block-buttons">
           <button className="admin-button">
@@ -85,11 +85,11 @@ export default function AdminCategory() {
             <Link to={`/admin`}>Categories page</Link>
           </button>
         </div>
-      </div>
+      </header>
 
       <div className="admin-form-background"></div>
 
-      <div className="admin-form">
+      <section className="admin-form">
         <AdminFormDish
           itemData={[title, setTitle]}
           descriptionData={[description, setDescription]}
@@ -99,15 +99,15 @@ export default function AdminCategory() {
           onCreate={onCreate}
           dishes={dishes}
         />
-      </div>
+      </section>
 
-      <div className="admin-content-block">
+      <main className="admin-content-block">
         <AdminDishTable dishCard={dishCard} />
 
         <button className="admin-button" onClick={() => navigate(-1)}>
           Go back
         </button>
-      </div>
+      </main>
     </div>
   );
 }

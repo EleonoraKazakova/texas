@@ -35,9 +35,9 @@ export default function Category() {
           {params.category.toLocaleUpperCase()}
         </h1>
       </header>
-      <div className="category-block">
+      <main className="category-block">
         <div className="category-dishes-block">{dishCard}</div>
-      </div>
+      </main>
     </div>
   );
 }

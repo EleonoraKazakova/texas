@@ -57,7 +57,7 @@ export default function AdminFormDish({
           />
         </div>
         <div className="admin-label">
-          <button className="admin-button">Choose image</button>
+          <p>Choose image</p>
           <img
             src={file !== null ? URL.createObjectURL(file) : EmptyImg}
             className="admin-foto"

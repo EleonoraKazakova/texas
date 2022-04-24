@@ -4,7 +4,7 @@ import "../styles/base/button.sass";
 
 export default function HomePage() {
   return (
-    <div className="homePage-block">
+    <main className="homePage-block">
       <div className="homePage-text">
         <h1 className="homePage-title">Texas</h1>
         <h3>BBQ restaurant</h3>
@@ -14,6 +14,6 @@ export default function HomePage() {
           </Link>
         </button>
       </div>
-    </div>
+    </main>
   );
 }

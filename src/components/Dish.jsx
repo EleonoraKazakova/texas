@@ -21,8 +21,10 @@ export default function Dish() {
 
   return (
     <div>
-      <img src={dish.imgURL} className="dish-img" />
-      <div className="dish-block">
+      <header>
+        <img src={dish.imgURL} className="dish-img" />
+      </header>
+      <main className="dish-block">
         <div className="dish-card">
           <h2>{dish.title}</h2>
           <div> {dish.description}</div>
@@ -32,7 +34,7 @@ export default function Dish() {
             Go back
           </button>
         </div>
-      </div>
+      </main>
     </div>
   );
 }

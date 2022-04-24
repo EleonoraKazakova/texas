@@ -69,24 +69,24 @@ export default function Admin() {
 
   return (
     <div className="admin-grid">
-      <div className="admin-header">
+      <header className="admin-header">
         <h1>Admin page</h1>
         <h3>All categories</h3>
-      </div>
+      </header>
 
       <div className="admin-form-background"></div>
 
-      <div className="admin-form">
+      <section className="admin-form">
         <AdminFormCategory
           itemData={[title, setTitle]}
           descriptionData={[description, setDescription]}
           fileData={[file, setFile]}
           onUpdate={onUpdate}
         />
-      </div>
-      <div className="admin-content-block">
+      </section>
+      <main className="admin-content-block">
         <AdminCategoryTable categoryCard={categoryCard} />
-      </div>
+      </main>
     </div>
   );
 }

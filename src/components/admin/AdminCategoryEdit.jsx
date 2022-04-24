@@ -62,10 +62,10 @@ export default function AdminCategoryEdit() {
 
   return (
     <div className="admin-grid">
-      <div className="admin-header">
+      <header className="admin-header">
         <h1>Edit category</h1>
-      </div>
-      <div className="admin-content-block-edit">
+      </header>
+      <main className="admin-content-block-edit">
         <form onSubmit={onUpdate} className="admin-form">
           <div>
             <label>Title</label>
@@ -87,7 +87,7 @@ export default function AdminCategoryEdit() {
             />
           </div>
           <div className="admin-label">
-            <label className="admin-button">Choose picture</label>
+            <label>Choose picture</label>
             <img
               src={file !== null ? URL.createObjectURL(file) : category.imgURL}
               className="admin-foto"
@@ -103,7 +103,7 @@ export default function AdminCategoryEdit() {
           </button>
           <button className="admin-button">Submit</button>
         </form>
-      </div>
+      </main>
     </div>
   );
 }

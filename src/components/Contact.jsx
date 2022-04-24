@@ -18,9 +18,9 @@ export default function Contact() {
   ));
 
   return (
-    <main>
+    <div>
       <header className="contact-hero-content" />
-      <section className="contact-grid-content">
+      <main className="contact-grid-content">
         <div className="contact-text-form">
           <div>
             <h2>Opening hours</h2>
@@ -36,7 +36,7 @@ export default function Contact() {
         </div>
 
         <Map />
-      </section>
-    </main>
+      </main>
+    </div>
   );
 }

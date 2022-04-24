@@ -30,7 +30,7 @@ export default function Menu() {
       <header className="menu-main-img">
         <h1 className="menu-title">MENU</h1>
       </header>
-      <div className="menu-cards">{categoryCard}</div>
+      <main className="menu-cards">{categoryCard}</main>
     </div>
   );
 }

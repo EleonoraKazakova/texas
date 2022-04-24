@@ -62,10 +62,10 @@ export default function AdminDishEdit() {
 
   return (
     <div className="admin-grid">
-      <div className="admin-header">
+      <header className="admin-header">
         <h1>{title}</h1>
-      </div>
-      <div className="admin-content-block-edit">
+      </header>
+      <main className="admin-content-block-edit">
         <form className="admin-form">
           <div>
             <label>Title</label>
@@ -132,7 +132,7 @@ export default function AdminDishEdit() {
             Delete dish
           </button>
         </form>
-      </div>
+      </main>
     </div>
   );
 }
