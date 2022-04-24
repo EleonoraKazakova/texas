@@ -1,15 +1,16 @@
 import { useState, useEffect } from "react";
 import "../../styles/admin.sass";
 import { addDocument, getCollection } from "../../scripts/fireStore";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { createFile } from "../../scripts/cloudStorage";
-import AdminFormDish from "./Admin-form-dish";
-import EmptyImg from "../../images/empty.png";
+import AdminFormDish from "./AdminFormDish";
+import EmptyImg from "../../images/empty.jpg";
 import AdminDishCard from "./AdminDishCard";
 import AdminDishTable from "./AdminDishTable";
 
 export default function AdminCategory() {
   const params = useParams();
+  const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [description, setDescription] = useState("");
@@ -102,6 +103,10 @@ export default function AdminCategory() {
 
       <div className="admin-content-block">
         <AdminDishTable dishCard={dishCard} />
+
+        <button className="admin-button" onClick={() => navigate(-1)}>
+          Go back
+        </button>
       </div>
     </div>
   );

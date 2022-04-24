@@ -8,7 +8,7 @@ import {
 import { createFile } from "../../scripts/cloudStorage";
 import "../../styles/admin.sass";
 
-export default function AdminDish() {
+export default function AdminDishEdit() {
   const params = useParams();
   const navigate = useNavigate();
   const [dish, setDish] = useState([]);
@@ -18,12 +18,12 @@ export default function AdminDish() {
   const [description, setDescription] = useState("");
   const [fileBytes, setFileBytes] = useState(null);
 
-  const path = `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDish}`;
+  const path = `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDishEdit}`;
 
   useEffect(() => {
     async function loadData() {
       const data = await getDocument(
-        `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDish}`
+        `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDishEdit}`
       );
       setDish(data);
       setIngredients(data.ingredients);

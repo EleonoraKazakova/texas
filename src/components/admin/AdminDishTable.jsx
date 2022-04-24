@@ -8,7 +8,7 @@ export default function AdminDishTable({ dishCard }) {
         <td className="admin-td-title">Title</td>
         <td className="admin-td-description"> Description</td>
         <td className="admin-td-description"> Ingredients</td>
-        <td className="admin-td-title">Price</td>
+        <td className="admin-td-price">Price</td>
         <td className="admin-td-delete">Edit</td>
         <td className="admin-td-delete">Delete</td>
       </thead>

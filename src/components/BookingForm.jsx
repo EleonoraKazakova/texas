@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/bookingForm.css";
+import "../styles/bookingForm.sass";
 
 export default function BookingForm() {
   const [name, setName] = useState("");

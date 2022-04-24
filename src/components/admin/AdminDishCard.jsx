@@ -17,7 +17,7 @@ export default function AdminDishCard({ doc, params, dishes, setDishes }) {
       <td className="admin-td-title">{doc.title}</td>
       <td className="admin-td-description">{doc.description}</td>
       <td className="admin-td-description">{doc.ingredients}</td>
-      <td className="admin-td-title">{doc.price}</td>
+      <td className="admin-td-price">{doc.price}</td>
       <td className="admin-td-delete">
         <button className="admin-button">
           <Link to={`/admin/${params}/${doc.type}`}>Edit</Link>

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createFile } from "../../scripts/cloudStorage";
 import { getDocument, updateDocument } from "../../scripts/fireStore";
 import "../../styles/admin.sass";
-import EmptyImg from "../../images/empty.png";
+import EmptyImg from "../../images/empty.jpg";
 
 export default function AdminCategoryEdit() {
   const params = useParams();

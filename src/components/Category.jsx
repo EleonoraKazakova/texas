@@ -30,7 +30,11 @@ export default function Category() {
 
   return (
     <div>
-      <header className={`category-${params.category} category-img`}></header>
+      <header className={`category-${params.category} category-img`}>
+        <h1 className="category-title">
+          {params.category.toLocaleUpperCase()}
+        </h1>
+      </header>
       <div className="category-block">
         <div className="category-dishes-block">{dishCard}</div>
       </div>

@@ -7,7 +7,7 @@ import Dish from "./components/Dish";
 import NavigationBar from "./components/NavigationBar";
 import Admin from "./components/admin/Admin";
 import AdminCategory from "./components/admin/AdminCategory";
-import AdminDish from "./components/admin/AdminDish";
+import AdminDishEdit from "./components/admin/AdminDishEdit";
 import AdminCategoryEdit from "./components/admin/AdminCategoryEdit";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -30,8 +30,8 @@ function App() {
             element={<AdminCategoryEdit />}
           />
           <Route
-            path="/admin/:adminCategory/:adminDish"
-            element={<AdminDish />}
+            path="/admin/:adminCategory/:adminDishEdit"
+            element={<AdminDishEdit />}
           />
         </Routes>
       </div>

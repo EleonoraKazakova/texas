@@ -1,4 +1,4 @@
-import "../styles/contact.css";
+import "../styles/contact.sass";
 import DataTime from "./DataTime.json";
 import BookingForm from "./BookingForm";
 import Map from "./Map";

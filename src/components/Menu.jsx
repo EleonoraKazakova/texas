@@ -27,7 +27,9 @@ export default function Menu() {
 
   return (
     <div className="menu-grid">
-      <header className="menu-main-img"> </header>
+      <header className="menu-main-img">
+        <h1 className="menu-title">MENU</h1>
+      </header>
       <div className="menu-cards">{categoryCard}</div>
     </div>
   );
