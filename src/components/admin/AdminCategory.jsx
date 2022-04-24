@@ -68,6 +68,7 @@ export default function AdminCategory() {
       dishes={dishes}
       params={params.adminCategory}
       setDishes={setDishes}
+      key={doc.type}
     />
   ));
 

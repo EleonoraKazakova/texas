@@ -87,7 +87,7 @@ export default function AdminCategoryEdit() {
             />
           </div>
           <div className="admin-label">
-            <label>Choose picture</label>
+            <p className="admin-choose-image">Choose picture</p>
             <img
               src={file !== null ? URL.createObjectURL(file) : category.imgURL}
               className="admin-foto"

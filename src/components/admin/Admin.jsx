@@ -64,6 +64,7 @@ export default function Admin() {
       categories={categories}
       setCategories={setCategories}
       path={path}
+      key={item.type}
     />
   ));
 

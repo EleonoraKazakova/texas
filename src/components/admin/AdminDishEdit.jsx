@@ -113,7 +113,7 @@ export default function AdminDishEdit() {
               }
               className="admin-foto"
             />
-            <label>Choose picture</label>
+            <label className="admin-choose-image">Choose picture</label>
             <input
               type="file"
               accept="image/png, image/jpeg"

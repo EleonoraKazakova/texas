@@ -1,29 +1,27 @@
-import { getCollection } from "../scripts/fireStore";
+import { getDocument } from "../scripts/fireStore";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/menu.sass";
 
 export default function Menu() {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState({ subCategory: [] });
 
   useEffect(() => {
     async function loadData(path) {
-      const data = await getCollection(path);
+      const data = await getDocument(path);
       setCategories(data);
     }
-    loadData("categoriesTexas");
+    loadData("categoriesTexas/allDishes");
   }, []);
 
-  const categoryCard = categories.map((item) =>
-    item.subCategory.map((subCategory) => (
-      <button className="menu-card">
-        <img src={subCategory.imgURL} className="menu-img" />
-        <Link to={`/menu/${subCategory.type}`} className="menu-link">
-          {subCategory.title}
-        </Link>
-      </button>
-    ))
-  );
+  const categoryCard = categories.subCategory.map((item) => (
+    <button className="menu-card" key={item.type}>
+      <img src={item.imgURL} className="menu-img" />
+      <Link to={`/menu/${item.type}`} className="menu-link">
+        {item.title}
+      </Link>
+    </button>
+  ));
 
   return (
     <div className="menu-grid">
