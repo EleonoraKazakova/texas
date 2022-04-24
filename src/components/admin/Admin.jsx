@@ -13,7 +13,7 @@ export default function Admin() {
   const [description, setDescription] = useState("");
   const [categories, setCategories] = useState([]);
 
-  const path = `categoriesTexas/allDishes`;
+  const path = "categoriesTexas/allDishes";
 
   useEffect(() => {
     async function loadData(path) {

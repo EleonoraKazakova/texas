@@ -23,7 +23,7 @@ export default function AdminCategoryEdit() {
       const category = data.subCategory.find(
         (category) => category.type === params.adminCategory
       );
-      console.log("category:", category);
+
       setCategories(data.subCategory);
       setDescription(category.description);
       setTitle(category.title);

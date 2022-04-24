@@ -17,7 +17,6 @@ export default function AdminCategory() {
   const [dishes, setDishes] = useState([]);
   const [file, setFile] = useState(null);
 
-  console.log("ingredients:", ingredients);
   useEffect(() => {
     const path = `categoriesTexas/allDishes/${params.adminCategory}`;
     async function loadData(path) {
@@ -94,7 +93,7 @@ export default function AdminCategory() {
           itemData={[title, setTitle]}
           descriptionData={[description, setDescription]}
           fileData={[file, setFile]}
-          formProps={[ingredients, setIngredients]}
+          ingredientsData={[ingredients, setIngredients]}
           priceData={[price, setPrice]}
           onCreate={onCreate}
           dishes={dishes}

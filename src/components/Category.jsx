@@ -7,7 +7,6 @@ export default function Category() {
   const params = useParams();
   const [document, setDocument] = useState([]);
 
-  console.log("params:", params);
   useEffect(() => {
     const path = `categoriesTexas/allDishes/${params.category}`;
     async function loadData(path) {

@@ -9,20 +9,16 @@ export default function Dish() {
   const navigate = useNavigate();
   const [dish, setDish] = useState([]);
 
-  console.log("params:", params);
-
   useEffect(() => {
     async function loadData() {
       const data = await getDocument(
         `categoriesTexas/allDishes/${params.category}/${params.dish}`
       );
-      console.log("data:", data);
       setDish(data);
     }
     loadData();
   }, []);
 
-  console.log("dish:", dish);
   return (
     <div>
       <img src={dish.imgURL} className="dish-img" />

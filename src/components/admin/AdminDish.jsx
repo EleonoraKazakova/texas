@@ -25,7 +25,6 @@ export default function AdminDish() {
       const data = await getDocument(
         `categoriesTexas/allDishes/${params.adminCategory}/${params.adminDish}`
       );
-      console.log("data:", data);
       setDish(data);
       setIngredients(data.ingredients);
       setDescription(data.description);

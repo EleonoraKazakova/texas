@@ -5,14 +5,14 @@ export default function AdminFormDish({
   itemData,
   descriptionData,
   fileData,
-  formProps,
+  ingredientsData,
   priceData,
   onCreate,
 }) {
   const [title, setTitle] = itemData;
   const [description, setDescription] = descriptionData;
   const [file, setFile] = fileData;
-  const [ingredients, setIngredients] = formProps;
+  const [ingredients, setIngredients] = ingredientsData;
   const [price, setPrice] = priceData;
 
   return (
