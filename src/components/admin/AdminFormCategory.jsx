@@ -35,7 +35,7 @@ export default function AdminFormCategory({
           />
         </div>
         <div className="admin-label">
-          <p className="admin-choose-image">Choose picture</p>
+          <label className="admin-choose-image">Choose picture</label>
           <img
             src={file !== null ? URL.createObjectURL(file) : EmptyImg}
             className="admin-foto"
