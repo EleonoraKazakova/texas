@@ -34,6 +34,7 @@ export default function AdminCategory() {
     setPrice("");
   }
 
+  // Same as onUpdate on Admin.jsx
   async function onCreate(event) {
     event.preventDefault();
     const newType = title.toLowerCase();

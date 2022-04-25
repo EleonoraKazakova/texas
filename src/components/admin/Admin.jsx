@@ -29,6 +29,7 @@ export default function Admin() {
     setFile(null);
   }
 
+  // The onUpdate is well written, you can think how to reduce the ammount of lines by refactoring a bit more
   async function onUpdate(event) {
     event.preventDefault();
 
@@ -43,6 +44,7 @@ export default function Admin() {
     const filePath = path + fileName;
     const imgURL = await createFile(filePath, file);
 
+    // Nice validation
     if (file === null) {
       newCategory.imgURL = EmptyImg;
     } else {
@@ -50,6 +52,7 @@ export default function Admin() {
     }
 
     if (newCategory.title === "") return;
+
     await updateDocument(path, {
       subCategory: [...categories, newCategory],
     });
@@ -72,9 +75,11 @@ export default function Admin() {
     <div className="admin-grid">
       <header className="admin-header">
         <h1>Admin page</h1>
+        {/* Don't use h3 just to make the title smaller, use h2 and make it smaller using css -1 */}
         <h3>All categories</h3>
       </header>
 
+      {/* An empty div that does not wrap anything for just a background, feels weird -1 */}
       <div className="admin-form-background"></div>
 
       <section className="admin-form">

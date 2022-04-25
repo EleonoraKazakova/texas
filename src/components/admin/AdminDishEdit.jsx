@@ -56,6 +56,7 @@ export default function AdminDishEdit() {
     navigate(-1);
   }
 
+  // Here you are missing the document ID, that's why you dont delete the stuff for real
   async function onDelete() {
     await deleteDocument(path);
   }

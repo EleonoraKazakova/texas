@@ -12,6 +12,7 @@ import AdminCategoryEdit from "./components/admin/AdminCategoryEdit";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
+// Rename App.js to JSX -1
 function App() {
   return (
     <div className="app-grid">
@@ -35,6 +36,7 @@ function App() {
           />
         </Routes>
       </div>
+      {/* Why the footer needs a extra div "app-footer" but the navigation bar not? -1 */}
       <div className="app-footer">
         <Footer />
       </div>
