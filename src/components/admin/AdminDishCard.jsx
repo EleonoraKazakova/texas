@@ -3,9 +3,7 @@ import { deleteDocument } from "../../scripts/fireStore";
 
 export default function AdminDishCard({ doc, params, dishes, setDishes }) {
   async function onDelete(dish) {
-    await deleteDocument(
-      `categoriesTexas/allDishes/${params.adminCategory}/${dish}`
-    );
+    await deleteDocument(`categoriesTexas/allDishes/${params}/${dish}`);
     const newDishes = dishes.filter((currentDish) => currentDish.type !== dish);
     setDishes(newDishes);
   }
