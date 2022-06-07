@@ -19,17 +19,17 @@ export default function AdminCategoryCard({
     setCategories(newCategories);
   }
   return (
-    <tr className="admin-category">
-      <td className="admin-td-img">
+    <div className="admin-dish-grid">
+      <div className="admin-td-img">
         <img src={item.imgURL} className="admin-foto" />
-      </td>
-      <td className="admin-td-title">
+      </div>
+      <div className="admin-category-title">
         <Link to={`/admin/${item.type}`}> {item.title} </Link>
-      </td>
-      <td className="admin-td-description"> {item.description}</td>
-      <td className="admin-td-delete">
+      </div>
+      <div className="admin-category-description"> {item.description}</div>
+      <div className="admin-buttons">
         <button onClick={(event) => onDelete(event, item.title)}>Delete</button>
-      </td>
-    </tr>
+      </div>
+    </div>
   );
 }
