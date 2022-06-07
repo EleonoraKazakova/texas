@@ -8,24 +8,29 @@ export default function AdminDishCard({ doc, params, dishes, setDishes }) {
     setDishes(newDishes);
   }
   return (
-    <tr key={doc.title} className="admin-category">
-      <td className="admin-td-img">
-        <img src={doc.imgURL} className="admin-foto" />
-      </td>
-      <td className="admin-td-title">{doc.title}</td>
-      <td className="admin-td-description">{doc.description}</td>
-      <td className="admin-td-description">{doc.ingredients}</td>
-      <td className="admin-td-price">{doc.price}</td>
-      <td className="admin-td-delete">
-        <button className="admin-button">
-          <Link to={`/admin/${params}/${doc.type}`}>Edit</Link>
-        </button>
-      </td>
-      <td className="admin-td-delete">
-        <button className="admin-button" onClick={() => onDelete(doc.type)}>
-          Delete
-        </button>
-      </td>
-    </tr>
+    <div key={doc.title} className="admin-dish-grid">
+      <div className="admin-td-img">
+        <img src={doc.imgURL} className="admin-foto-dish" />
+      </div>
+
+      <div className="admin-td-title">{doc.title}</div>
+      <div className="admin-td-price">Price: {doc.price}</div>
+
+      <div className="admin-td-description">Description: {doc.description}</div>
+      <div className="admin-td-ingredients">Ingredients: {doc.ingredients}</div>
+
+      <div className="admin-buttons">
+        <div className="admin-td-delete">
+          <button className="admin-button">
+            <Link to={`/admin/${params}/${doc.type}`}>Edit</Link>
+          </button>
+        </div>
+        <div className="admin-td-delete">
+          <button className="admin-button" onClick={() => onDelete(doc.type)}>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }
