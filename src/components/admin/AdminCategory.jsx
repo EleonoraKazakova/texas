@@ -6,7 +6,6 @@ import { createFile } from "../../scripts/cloudStorage";
 import AdminFormDish from "./AdminFormDish";
 import EmptyImg from "../../images/empty.jpg";
 import AdminDishCard from "./AdminDishCard";
-import AdminDishTable from "./AdminDishTable";
 
 export default function AdminCategory() {
   const params = useParams();
@@ -103,7 +102,7 @@ export default function AdminCategory() {
       </section>
 
       <main className="admin-content-block">
-        <AdminDishTable dishCard={dishCard} />
+        <div className="admin-category-block">{dishCard}</div>
 
         <button className="admin-button" onClick={() => navigate(-1)}>
           Go back

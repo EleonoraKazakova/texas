@@ -5,7 +5,6 @@ import "../../styles/admin.sass";
 import AdminFormCategory from "./AdminFormCategory";
 import EmptyImg from "../../images/empty.jpg";
 import AdminCategoryCard from "./AdminCategoryCard";
-import AdminCategoryTable from "./AdminCategoryTable";
 
 export default function Admin() {
   const [title, setTitle] = useState("");
@@ -86,7 +85,7 @@ export default function Admin() {
         />
       </section>
       <main className="admin-content-block">
-        <AdminCategoryTable categoryCard={categoryCard} />
+        <div className="admin-category-block">{categoryCard}</div>
       </main>
     </div>
   );

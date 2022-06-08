@@ -1,0 +1,14 @@
+{
+  "title": {
+    "label": "Title",
+    "placeholder": "Desserts",
+    "type": "text",
+    "required": true
+  },
+  "description": {
+    "label": "Description",
+    "placeholder": "This category is about...",
+    "type": "text",
+    "required": true
+  }
+}

@@ -4,6 +4,8 @@ import { createFile } from "../../scripts/cloudStorage";
 import { getDocument, updateDocument } from "../../scripts/fireStore";
 import "../../styles/admin.sass";
 import EmptyImg from "../../images/empty.jpg";
+import InputField from "./InputField";
+import form from "../../data/form.json";
 
 export default function AdminCategoryEdit() {
   const params = useParams();
@@ -14,7 +16,7 @@ export default function AdminCategoryEdit() {
   const [type, setType] = useState("");
   const [file, setFile] = useState(null);
   const [description, setDescription] = useState("");
-
+  console.log("category:", category);
   const path = `categoriesTexas/allDishes`;
 
   useEffect(() => {
@@ -38,17 +40,17 @@ export default function AdminCategoryEdit() {
     const newCategory = {
       title: title,
       type: type,
-      imgURL: "",
+      imgURL: category.imgURL,
       description: description,
     };
 
-    const fileName = `category-${title}.jpg`;
-    const filePath = path + fileName;
-    const imgURL = await createFile(filePath, file);
-
-    if (file === null) {
+    if (category.imgURL === "") {
       newCategory.imgURL = EmptyImg;
-    } else {
+    } else if (file !== null) {
+      const fileName = `category-${title}.jpg`;
+      const filePath = path + fileName;
+      const imgURL = await createFile(filePath, file);
+
       newCategory.imgURL = imgURL;
     }
 
@@ -67,25 +69,12 @@ export default function AdminCategoryEdit() {
       </header>
       <main className="admin-content-block-edit">
         <form onSubmit={onUpdate} className="admin-form">
-          <div>
-            <label>Title</label>
-            <input
-              placeholder="Title"
-              required
-              type="text"
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            />
-          </div>
-          <div>
-            <label>Description</label>
-            <input
-              placeholder="description"
-              type="text"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-            />
-          </div>
+          <InputField setup={form.title} state={[title, setTitle]} />
+          <InputField
+            setup={form.description}
+            state={[description, setDescription]}
+          />
+
           <div className="admin-label">
             <label className="admin-choose-image">Choose picture</label>
             <img
